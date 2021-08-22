@@ -132,6 +132,6 @@ async def clear(ctx,limit):
  
 
 
-bot.run("NzY2MzY0MTg0ODA3NDczMTkz.X4iSRA.N5SBTq7Esbd0wsD4ex5BHV1mGs0")
+bot.run("Bot token")
 
 gae=input()
