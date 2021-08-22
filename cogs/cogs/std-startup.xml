@@ -1,0 +1,18 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+<!-- This category works with the Standard AIML Set -->
+<category>
+<pattern>LOAD AIML B</pattern>
+<template>
+
+<!-- Load standard AIML set -->
+<learn>std-hello.aiml</learn>
+<learn>dev-calender.aiml</learn>
+<learn>dev-examples.aiml</learn>
+<learn>std-gender.aiml</learn>
+<learn>std-gossip.aiml</learn>
+
+</template>
+</category>
+
+</aiml>
