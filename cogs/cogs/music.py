@@ -27,7 +27,7 @@ from dislash import SlashClient, SelectMenu, SelectOption
 from openpyxl import load_workbook
 from openpyxl.styles import Font, Color, Alignment, Border, Side
 
-file = load_workbook(r"C:\SAMEER MAIN\Sameer\Code\Openpyxl\data.xlsx")
+file = load_workbook(r"ENTER PATH TO EXCEL SHEET")
 sheet = file["MAIN"]
 fonttemplate = Font(name='Calibre',size=12,color='FF000000')
 
@@ -132,7 +132,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
                 except IndexError:
                     raise YTDLError('Couldn\'t retrieve any matches for `{}`'.format(webpage_url))
 
-        return cls(ctx, discord.FFmpegPCMAudio(info['url'], **cls.FFMPEG_OPTIONS,executable=r"C:\SAMEER MAIN\Sameer\Code\Lemen Bot\LemenBot\ffmpeg\bin\ffmpeg.exe"), data=info)
+        return cls(ctx, discord.FFmpegPCMAudio(info['url'], **cls.FFMPEG_OPTIONS,executable=r"ENTER PATH FOR FFMPEG.EXE"), data=info)
 
     @staticmethod
     def parse_duration(duration: int):
@@ -343,26 +343,7 @@ class Music(commands.Cog):
             return await ctx.send('Not connected to any voice channel.')
         await ctx.voice_state.stop()
         del self.voice_states[ctx.guild.id]
-        #try:
-
-        #await ctx.voice_state.stop()
-        #del self.voice_states[ctx.guild.id]
-        ##await ctx.voice_client.disconnect()
-        #await ctx.send("Leaving...")
-        #return
-
-        #except(TypeError, AttributeError):
-        #   await ctx.send("Can't disconnect from a voice channel when I'm not in one")
-        #   return
-#
-        #if not ctx.voice_state.voice:
-        #    return await ctx.send('Not connected to any voice channel.')
-#
-        #await ctx.voice_state.stop()
-        #del self.voice_states[ctx.guild.id]
-
-
-
+     
 
     @commands.command(aliases=['vl','v'])
     async def volume(self, ctx, volume: int):
@@ -426,17 +407,7 @@ class Music(commands.Cog):
             ctx.voice_state.voice.resume()
             await ctx.message.add_reaction('⏯')
 
-    #@commands.command(name='stop')
-    #async def _stop(self, ctx: commands.Context):
-    #    await asyncio.sleep(0.5)
-    #    if not ctx.voice_state.voice:
-    #        return await ctx.send('Not connected to any voice channel.')
-    #    if  ctx.voice_state.voice:
-    #        await ctx.voice_state.stop()
-    #        del self.voice_states[ctx.guild.id]
-    #    await ctx.voice_state.stop()
-    #    del self.voice_states[ctx.guild.id]
-        
+  
 
 
     @commands.command(name='skip')
@@ -522,8 +493,8 @@ class Music(commands.Cog):
 
     @commands.command(name='sp',aliases=['spotifyplay'])
     async def _sp(self, ctx: commands.Context, *, link):
-        client_id = "5f32d8d16a3b4ca58df7831a2d96f65f"
-        client_secret = "a9f10697de40424786b8dcf2d5374652"
+        client_id = "ENTER SPOTIFY CLIENT ID"
+        client_secret = "ENTER SPOTIFY CLIENT SECRET"
         client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
         sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
         main=[]
@@ -550,13 +521,13 @@ class Music(commands.Cog):
     @commands.command()
     async def mysp(self, ctx):
 
-        file = load_workbook(r"C:\SAMEER MAIN\Sameer\Code\Openpyxl\data.xlsx")
+        file = load_workbook(r"ENTER PATH TO EXCEL SHEET")
         sheet = file["MAIN"]
         fonttemplate = Font(name='Calibre',size=12,color='FF000000')
 
         a={}
-        client_id = "5f32d8d16a3b4ca58df7831a2d96f65f"
-        client_secret = "a9f10697de40424786b8dcf2d5374652"
+        client_id="ENTER SPOTIFY CLIENT ID"
+        client_secret="ENTER SPOTIFY CLIENT SECRET"
         client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
         sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
@@ -625,107 +596,6 @@ class Music(commands.Cog):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #@commands.command()
-    #async def mysp(self, ctx):
-    #    client1 = pygsheets.authorize(service_file='./client_secret.json')
-    #    sheet = client1.open('Lemen Control Panel')
-    #    worksheet = sheet[1]
-    #    myname=str(ctx.author.display_name)
-    #    header = worksheet.find("#")
-    #    indexnum=int(str(header[0].label)[-1])
-    #    nny=[]
-    #    linkurl=[]
-    #    playlistdict={}
-    #    for i in range(indexnum):
-    #        index="B"+str(i)
-    #        checkname=str(worksheet.get_value(index))
-    #        if myname==checkname:
-    #            printer=str(worksheet.get_value("D"+str(i)))
-    #            linkurl.append(printer)
-    #            import spotipy
-    #            from spotipy.oauth2 import SpotifyClientCredentials
-    #            client_id = "5f32d8d16a3b4ca58df7831a2d96f65f"
-    #            client_secret = "a9f10697de40424786b8dcf2d5374652"
-    #            client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
-    #            sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-    #            main=[]
-    #            main_artist=[]
-    #            pops = sp.playlist(printer)
-    #            nny.append(pops['name'])
-    #    for idekwhat in range(len(nny)):
-    #        playlistdict[nny[idekwhat]] = linkurl[idekwhat]
-    #    
-#
-    #      
-    #    for j in nny:
-    #        print(j)
-    #        await ctx.send("Click on the Button to play the playlist",components = [Button(style= ButtonStyle.blue,label = j)])
-#
-#
-    #    final_player=[]
-    #    for k in nny:
-    #        interaction = await self.bot.wait_for("button_click", check = lambda i: i.component.label.startswith(k))
-    #        await interaction.respond(content = "Adding {} to queue...".format(k))
-    #        final_player.append(playlistdict[k])
-#
-    #    for klh in final_player:
-    #        client_id = "5f32d8d16a3b4ca58df7831a2d96f65f"
-    #        client_secret = "a9f10697de40424786b8dcf2d5374652"
-    #        client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
-    #        sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-    #        main=[]
-    #        main_artist=[]
-    #        pop = sp.playlist(klh)
-    #        nn=len(pop['tracks']['items'])
-    #        for j in range(0,nn-1):
-    #            main.append(pop['tracks']['items'][j]['track']['name'])
-    #            main_artist.append(pop['tracks']['items'][j]['track']['artists'][0]['name'])
-    #        for ki in range(len(main)):
-    #            rm=str(main[ki])+" by "+str(main_artist[ki])
-    #            if not ctx.voice_state.voice:
-    #                await ctx.invoke(self._join)
-    #            try:
-    #                source = await YTDLSource.create_source(ctx, rm, loop=self.bot.loop)
-    #            except YTDLError as e:
-    #                print('An error occurred while processing this request: {}'.format(str(e)))
-    #            else:
-    #                song = Song(source)
-    #                await ctx.voice_state.songs.put(song)
-    #        #await asyncio.sleep(3)
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
     @commands.command()
     async def say(self, ctx: commands.Context, *, speech):
         message_queue = deque([])
@@ -740,7 +610,7 @@ class Music(commands.Cog):
                 f = TemporaryFile()
                 tts.write_to_fp(f)
                 f.seek(0)
-                vc.play(discord.FFmpegPCMAudio(f,pipe=True,executable=r"C:\SAMEER MAIN\Sameer\Code\Lemen Bot\LemenBot\ffmpeg\bin\ffmpeg.exe"))
+                vc.play(discord.FFmpegPCMAudio(f,pipe=True,executable=r"ENTER PATH FOR FFMPEG.EXE"))
 
             else:
                 message_queue.append(message)
@@ -750,7 +620,7 @@ class Music(commands.Cog):
                 f = TemporaryFile()
                 tts.write_to_fp(f)
                 f.seek(0)
-                vc.play(discord.FFmpegPCMAudio(f, pipe=True,executable=r"C:\SAMEER MAIN\Sameer\Code\Lemen Bot\LemenBot\ffmpeg\bin\ffmpeg.exe"))
+                vc.play(discord.FFmpegPCMAudio(f, pipe=True,executable=r"ENTER PATH FOR FFMPEG.EXE"))
         except(TypeError, AttributeError):
             try:
                 tts = gTTS(message)
@@ -759,7 +629,7 @@ class Music(commands.Cog):
                 f.seek(0)
                 channel = ctx.message.author.voice.channel
                 vc = await channel.connect()
-                vc.play(discord.FFmpegPCMAudio(f, pipe=True,executable=r"C:\SAMEER MAIN\Sameer\Code\Lemen Bot\LemenBot\ffmpeg\bin\ffmpeg.exe"))
+                vc.play(discord.FFmpegPCMAudio(f, pipe=True,executable=r"ENTER PATH FOR FFMPEG.EXE"))
             except(AttributeError, TypeError):
                 await ctx.send("I'm not in a voice channel and neither are you!")
             return
@@ -804,7 +674,7 @@ class Music(commands.Cog):
                         f = TemporaryFile()
                         tts.write_to_fp(f)
                         f.seek(0)
-                        vc.play(discord.FFmpegPCMAudio(f,pipe=True,executable=r"C:\SAMEER MAIN\Sameer\Code\Lemen Bot\LemenBot\ffmpeg\bin\ffmpeg.exe"))
+                        vc.play(discord.FFmpegPCMAudio(f,pipe=True,executable=r"ENTER PATH FOR FFMPEG.EXE"))
         
                     else:
                         message_queue.append(message)
@@ -814,7 +684,7 @@ class Music(commands.Cog):
                         f = TemporaryFile()
                         tts.write_to_fp(f)
                         f.seek(0)
-                        vc.play(discord.FFmpegPCMAudio(f, pipe=True,executable=r"C:\SAMEER MAIN\Sameer\Code\Lemen Bot\LemenBot\ffmpeg\bin\ffmpeg.exe"))
+                        vc.play(discord.FFmpegPCMAudio(f, pipe=True,executable=r"ENTER PATH FOR FFMPEG.EXE"))
                 except(TypeError, AttributeError):
                     try:
                         tts = gTTS(message)
@@ -823,7 +693,7 @@ class Music(commands.Cog):
                         f.seek(0)
                         channel = destination
                         vc = await channel.connect()
-                        vc.play(discord.FFmpegPCMAudio(f, pipe=True,executable=r"C:\SAMEER MAIN\Sameer\Code\Lemen Bot\LemenBot\ffmpeg\bin\ffmpeg.exe"))
+                        vc.play(discord.FFmpegPCMAudio(f, pipe=True,executable=r"ENTER PATH FOR FFMPEG.EXE"))
                     except(AttributeError, TypeError):
                         await ctx.send("I'm not in a voice channel and neither are you!")
                     return
