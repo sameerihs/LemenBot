@@ -31,10 +31,8 @@ class Chat(commands.Cog):
 
 	@commands.Cog.listener()
 	async def on_message(self, message):
-		weird = [                                                                                                                         'fuck','Fuck','punda','otha','shit','mf','ffs','FFS']
-		lemen_list = ['lemen','Lemen','LEMEN']
-		lemon= ['lemon',"Lemon","LEMON"]
-		g=["gey","gay"]
+		weird = [                                                                                                                                                               'fuck','Fuck','punda','otha','shit','mf','ffs','FFS']
+		
 
 		messageContent = message.content
 		if len(messageContent) > 0:
@@ -45,35 +43,10 @@ class Chat(commands.Cog):
 			print(message.author,"said",message.content)
 
 
-	@commands.command()
-	async def chat(self,ctx):
-		a=ctx.message.author
-		await ctx.channel.send("Heyy, Let's chat")
-		await ctx.channel.send("How are you?")
-		
+	
 			
 			
-			#if ('good','fine','amaze','nice','cool','ok','well') in message.content:
-			#	how = ('Hi', 'Hello', '안녕하세요 (Annyeonghaseyo)', '你好', 'こんにちは(Konnichiwa)', 'Bonjour')
-			#	response = random.choice(how)
-			#	await message.channel.send(response)
-			#	pass
-#
-			#if ('bad','idiotic','shit','not','lame','fucked','weird') in message.content:
-			#	how = ('Hi', 'Hello', '안녕하세요 (Annyeonghaseyo)', '你好', 'こんにちは(Konnichiwa)', 'Bonjour')
-			#	response = random.choice(how)
-			#	await message.channel.send(response)
-			#	pass
-
-
-
-
-
-
-
-
-
-
+	
 def setup(client):
 	client.add_cog(Chat(client))
 
