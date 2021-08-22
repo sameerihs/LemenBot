@@ -6,17 +6,7 @@ from discord.ext import commands
 class Announcement(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    '''@commands.command()
-    async def make(self,ctx):
-    	def check(message):
-    		return message.author == ctx.author and message.channel == ctx.channel
-    	await ctx.send('Waiting for a title')
-    	title = await self.bot.wait_for('message', check=check)
-    	await ctx.send('Waiting for a description')
-    	desc = await self.bot.wait_for('message', check=check)
-    	embed = discord.Embed(title=title.content, description=desc.content, color=0x72d345)
-    	await ctx.send(embed=embed)'''
-   
+  
     
     @commands.command(aliases=['Ann','ann','botann','announcement'])
     #@has_permissions(administrator=True)
