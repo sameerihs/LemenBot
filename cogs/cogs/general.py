@@ -76,7 +76,7 @@ class Initiate(commands.Cog):
 		embeded.add_field(name=f"**`.die`**", value="Kills me",inline=True)
 
 		
-		if str(ctx.author)=="flyinLemon#3819":
+		if str(ctx.author)=="Your discord name":
 			await ctx.send(embed=embedh)
 			await ctx.send(embed=embeded)
 		else:
