@@ -3,7 +3,7 @@ import discord, datetime, time
 from discord.ext import commands
 import lyricsgenius
 
-genius = lyricsgenius.Genius("dX2_3zq00MmRxamDlTrfe5skxkJQh2cgjPndrNX0cpu7sPzb80Fbf2nk86iV4W9W")
+genius = lyricsgenius.Genius("GENIUS KEY")
 
 
 class Lyrics(commands.Cog):
